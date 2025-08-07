@@ -1,0 +1,114 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Next.js
+.next/
+out/
+dist/
+build/
+
+# Production build files
+*.tsbuildinfo
+next-env.d.ts
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Environment variables
+.env
+.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel deployment files
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Log files
+logs/
+*.log
+
+# Temporary folders
+tmp/
+temp/
+
+# Storybook build outputs
+storybook-static
+
+# Tailwind CSS
+# (Usually not needed as Tailwind generates CSS at build time)
+
+# Testing
+.jest/
+test-results/
+playwright-report/
+
+# Miscellaneous
+*.tgz
+*.tar.gz
+
+# Local development
+.turbo
+.cache/
+
+# PWA files
+**/public/sw.js
+**/public/workbox-*.js
+
+# Sentry
+.sentryclirc
+
+# Bundle analyzer
+.analyzer/
+
+# Temporary files
+errors.md
