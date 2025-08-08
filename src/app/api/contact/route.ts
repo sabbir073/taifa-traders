@@ -15,12 +15,12 @@ export async function POST(req: NextRequest) {
 
     // Create transporter with your SMTP settings
     const transporter = nodemailer.createTransport({
-      host: 'mail.taifatraders.com',
-      port: 465,
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || '465'),
       secure: true, // SSL/TLS
       auth: {
-        user: 'admin@taifatraders.com',
-        pass: '^oefg32bo!;AsbQk'
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASSWORD
       },
       tls: {
         rejectUnauthorized: false // For self-signed certificates if needed
@@ -29,8 +29,8 @@ export async function POST(req: NextRequest) {
 
     // Email content
     const mailOptions = {
-      from: 'admin@taifatraders.com',
-      to: 'info@taifatraders.com',
+      from: process.env.SMTP_FROM_EMAIL,
+      to: process.env.SMTP_TO_EMAIL,
       subject: `Contact Form: ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
