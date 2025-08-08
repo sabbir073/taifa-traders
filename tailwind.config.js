@@ -17,9 +17,8 @@ module.exports = {
         },
       },
       fontFamily: {
+        'sans': ['Poppins', 'sans-serif'],
         'poppins': ['Poppins', 'sans-serif'],
-        'rubik': ['Rubik', 'sans-serif'],
-        'merriweather': ['Merriweather', 'serif'],
       },
     },
   },

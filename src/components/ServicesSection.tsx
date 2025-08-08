@@ -1,36 +1,43 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const ServicesSection = () => {
   const services = [
     {
       icon: '/images/icon-1.png',
       title: 'Global Sourcing',
-      description: 'Access to worldwide suppliers and manufacturers for all your business needs with quality assurance and competitive pricing.'
+      description: 'Access to worldwide suppliers and manufacturers for all your business needs with quality assurance and competitive pricing.',
+      url: '/services/sourcing'
     },
     {
       icon: '/images/icon-2.png', 
       title: 'Efficient Logistics',
-      description: 'Streamlined supply chain management ensuring timely delivery and cost-effective transportation solutions.'
+      description: 'Streamlined supply chain management ensuring timely delivery and cost-effective transportation solutions.',
+      url: '/services/logistics'
     },
     {
       icon: '/images/icon-3.png',
       title: 'Partnership Consulting',
-      description: 'Expert guidance on international trade regulations, market entry strategies, and business development.'
+      description: 'Expert guidance on international trade regulations, market entry strategies, and business development.',
+      url: '/services/consulting'
     },
     {
       icon: '/images/icon-4.png',
       title: 'Customized Solutions', 
-      description: 'Tailored trading solutions designed to meet your specific business requirements and industry standards.'
+      description: 'Tailored trading solutions designed to meet your specific business requirements and industry standards.',
+      url: '/services'
     },
     {
       icon: '/images/icon-5.png',
       title: 'Essential Commodities',
-      description: 'Wide range of essential commodities including edible oils, fresh fruits, spices, and agricultural products.'
+      description: 'Wide range of essential commodities including edible oils, fresh fruits, spices, and agricultural products.',
+      url: '/services/quality'
     },
     {
       icon: '/images/icon-6.png',
       title: 'Dedicated Support',
-      description: '24/7 customer support and dedicated account management to ensure smooth trading operations.'
+      description: '24/7 customer support and dedicated account management to ensure smooth trading operations.',
+      url: '/contact'
     }
   ]
 
@@ -42,7 +49,7 @@ const ServicesSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-poppins mb-4">
             Our <span className="text-accent-500">Services</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto font-rubik">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             We provide comprehensive trading solutions to help your business grow globally. 
             Our expertise spans across various industries and markets worldwide.
           </p>
@@ -72,15 +79,15 @@ const ServicesSection = () => {
               <h3 className="text-xl font-semibold text-gray-900 mb-4 font-poppins group-hover:text-accent-500 transition-colors duration-300">
                 {service.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed font-rubik">
+              <p className="text-gray-600 leading-relaxed">
                 {service.description}
               </p>
 
               {/* Learn More Link */}
               <div className="mt-6">
-                <button className="text-accent-500 hover:text-red-600 font-semibold text-sm uppercase tracking-wider transition-colors duration-300 group-hover:underline">
+                <Link href={service.url} className="text-accent-500 hover:text-red-600 font-semibold text-sm uppercase tracking-wider transition-colors duration-300 group-hover:underline">
                   Learn More →
-                </button>
+                </Link>
               </div>
             </div>
           ))}
@@ -88,9 +95,9 @@ const ServicesSection = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-16">
-          <button className="bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+          <Link href="/services" className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
             VIEW ALL SERVICES
-          </button>
+          </Link>
         </div>
       </div>
     </section>

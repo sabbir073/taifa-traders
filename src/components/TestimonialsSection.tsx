@@ -46,7 +46,7 @@ const TestimonialsSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-poppins mb-4">
             Client <span className="text-accent-500">Testimonials</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto font-rubik">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto ">
             Don't just take our word for it - hear what our satisfied clients have to say about 
             their experience working with Taifa Traders.
           </p>
@@ -72,7 +72,7 @@ const TestimonialsSection = () => {
             </div>
 
             {/* Content */}
-            <p className="text-lg text-gray-700 mb-8 font-rubik leading-relaxed italic">
+            <p className="text-lg text-gray-700 mb-8  leading-relaxed italic">
               "{testimonials[activeTestimonial].content}"
             </p>
 
@@ -132,33 +132,6 @@ const TestimonialsSection = () => {
           ))}
         </div>
 
-        {/* All Testimonials Grid (Hidden on mobile, visible on larger screens) */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-8 mt-16">
-          {testimonials.map((testimonial, index) => (
-            <div 
-              key={index} 
-              className={`bg-white rounded-lg shadow-md p-6 cursor-pointer transition-all duration-300 hover:shadow-lg ${
-                index === activeTestimonial ? 'ring-2 ring-accent-500' : ''
-              }`}
-              onClick={() => setActiveTestimonial(index)}
-            >
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
-                  <span className="text-sm font-semibold text-gray-600">
-                    {testimonial.name.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900 text-sm">{testimonial.name}</div>
-                  <div className="text-accent-500 text-xs">{testimonial.company}</div>
-                </div>
-              </div>
-              <p className="text-gray-600 text-sm line-clamp-3">
-                "{testimonial.content}"
-              </p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   )

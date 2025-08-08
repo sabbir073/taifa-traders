@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const AboutUsBlock = () => {
   return (
@@ -10,10 +11,10 @@ const AboutUsBlock = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-poppins mb-6">
               About <span className="text-accent-500">Taifa Traders</span>
             </h2>
-            <p className="text-lg text-gray-600 mb-6 font-rubik leading-relaxed">
+            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
               Global trading partner based in Bangladesh, connecting businesses with reliable international suppliers.
             </p>
-            <p className="text-gray-600 mb-8 font-rubik leading-relaxed">
+            <p className="text-gray-600 mb-8 leading-relaxed">
               We specialize in providing competitive pricing, quality assurance, and on-time delivery 
               for businesses looking to expand their global reach. Our extensive network spans across 
               multiple continents, ensuring reliable sourcing and efficient logistics management.
@@ -27,7 +28,7 @@ const AboutUsBlock = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-gray-700 font-rubik">Global Network</span>
+                <span className="text-gray-700">Global Network</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center flex-shrink-0">
@@ -35,7 +36,7 @@ const AboutUsBlock = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-gray-700 font-rubik">Quality Assurance</span>
+                <span className="text-gray-700">Quality Assurance</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center flex-shrink-0">
@@ -43,7 +44,7 @@ const AboutUsBlock = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-gray-700 font-rubik">Competitive Pricing</span>
+                <span className="text-gray-700">Competitive Pricing</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center flex-shrink-0">
@@ -51,13 +52,13 @@ const AboutUsBlock = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-gray-700 font-rubik">On-Time Delivery</span>
+                <span className="text-gray-700">On-Time Delivery</span>
               </div>
             </div>
 
-            <button className="bg-accent-500 hover:bg-red-600 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+            <Link href="/about" className="inline-block bg-accent-500 hover:bg-red-600 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
               LEARN MORE ABOUT US
-            </button>
+            </Link>
           </div>
 
           {/* Image */}
@@ -76,7 +77,7 @@ const AboutUsBlock = () => {
             <div className="absolute -bottom-8 -left-8 bg-white rounded-lg shadow-xl p-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-accent-500 font-poppins mb-2">20+</div>
-                <div className="text-sm text-gray-600 font-rubik">Years Experience</div>
+                <div className="text-sm text-gray-600">Years Experience</div>
               </div>
             </div>
           </div>

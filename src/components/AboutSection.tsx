@@ -49,7 +49,7 @@ const AboutSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-poppins mb-4">
             Why Choose <span className="text-accent-500">Taifa Traders</span>?
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto font-rubik">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             With over two decades of experience in international trade, we have established 
             ourselves as a trusted partner for businesses seeking reliable global trading solutions.
           </p>
@@ -67,7 +67,7 @@ const AboutSection = () => {
                   {stat.label}
                 </div>
               </div>
-              <p className="text-sm text-gray-600 font-rubik">
+              <p className="text-sm text-gray-600">
                 {stat.description}
               </p>
             </div>
@@ -89,7 +89,7 @@ const AboutSection = () => {
                 <h3 className="text-xl font-semibold text-gray-900 mb-2 font-poppins">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed font-rubik">
+                <p className="text-gray-600 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
@@ -102,7 +102,7 @@ const AboutSection = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 font-poppins">
             Our Mission
           </h3>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto font-rubik mb-8">
+          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto mb-8">
             "To be the most trusted and reliable global trading partner, providing innovative 
             solutions that enable businesses to thrive in the international marketplace while 
             maintaining the highest standards of quality, integrity, and customer service."

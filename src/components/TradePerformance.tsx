@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 const TradePerformance = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -95,7 +96,7 @@ const TradePerformance = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white font-poppins mb-4">
             Trade Performance <span className="text-accent-500">Statistics</span>
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto font-rubik">
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
             Our numbers speak for themselves - delivering excellence in every aspect of international trade.
           </p>
         </div>
@@ -114,7 +115,7 @@ const TradePerformance = () => {
                 <div className="text-accent-500 font-semibold text-lg mb-2 font-poppins">
                   {stat.label}
                 </div>
-                <div className="text-blue-100 text-sm font-rubik">
+                <div className="text-blue-100 text-sm">
                   {stat.description}
                 </div>
               </div>
@@ -124,12 +125,12 @@ const TradePerformance = () => {
 
         {/* Additional Info */}
         <div className="mt-16 text-center">
-          <p className="text-blue-100 font-rubik text-lg mb-6">
+          <p className="text-blue-100 text-lg mb-6">
             Join hundreds of satisfied clients who trust us for their international trading needs
           </p>
-          <button className="bg-accent-500 hover:bg-red-600 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+          <Link href="/contact" className="inline-block bg-accent-500 hover:bg-red-600 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
             START TRADING WITH US
-          </button>
+          </Link>
         </div>
       </div>
     </section>

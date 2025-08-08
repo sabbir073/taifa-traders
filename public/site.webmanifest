@@ -1,0 +1,46 @@
+{
+  "name": "Taifa Traders - Global Trading Partner",
+  "short_name": "Taifa Traders",
+  "description": "Leading international trading company specializing in premium edible oils, fresh fruits, spices, and food staples.",
+  "start_url": "/?utm_source=pwa",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#142355",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "id": "taifa-traders-pwa-app",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["business", "shopping"],
+  "lang": "en"
+}

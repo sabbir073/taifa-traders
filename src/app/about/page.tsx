@@ -1,4 +1,32 @@
+import { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'About Taifa Traders - Leading International Trading Company',
+  description: 'Learn about Taifa Traders, a forward-thinking international trading company from Bangladesh with 20+ years of experience. Our mission, values, and commitment to excellence in global trade.',
+  keywords: 'about Taifa Traders, international trading company history, Bangladesh trading company, global trade expertise, trading company values, company mission vision, Dhaka exporters',
+  openGraph: {
+    title: 'About Taifa Traders - Leading International Trading Company',
+    description: 'Learn about Taifa Traders, a forward-thinking international trading company from Bangladesh with 20+ years of experience. Our mission, values, and commitment to excellence.',
+    url: 'https://taifatraders.com/about',
+    images: [
+      {
+        url: '/images/about/company-office.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Taifa Traders Company Office',
+      },
+    ],
+  },
+  twitter: {
+    title: 'About Taifa Traders - International Trading Company',
+    description: 'Learn about our 20+ years of experience in international trading, our mission, values, and commitment to excellence in global commerce.',
+  },
+  alternates: {
+    canonical: 'https://taifatraders.com/about',
+  },
+}
 
 const AboutPage = () => {
   const values = [
@@ -40,141 +68,132 @@ const AboutPage = () => {
     }
   ]
 
-  const timeline = [
-    {
-      year: '2004',
-      title: 'Company Founded',
-      description: 'Taifa Traders was established with a vision to simplify global trade for businesses.'
-    },
-    {
-      year: '2010',
-      title: 'Global Expansion',
-      description: 'Expanded operations to cover multiple continents with strategic partnerships.'
-    },
-    {
-      year: '2015',
-      title: 'Digital Transformation',
-      description: 'Implemented advanced logistics and tracking systems for better customer service.'
-    },
-    {
-      year: '2020',
-      title: 'Market Leadership',
-      description: 'Achieved recognition as a leading international trading company in Bangladesh.'
-    }
+  const achievements = [
+    { number: '20+', label: 'Years Experience', description: 'Two decades of excellence in global trade' },
+    { number: '50+', label: 'Countries Served', description: 'Extensive international network coverage' },
+    { number: '500+', label: 'Happy Clients', description: 'Satisfied customers worldwide' },
+    { number: '$10M+', label: 'Trade Volume', description: 'Annual trading value' }
+  ]
+
+  const quickLinks = [
+    { title: 'Mission & Vision', href: '/about/mission', description: 'Our purpose and future goals' },
+    { title: 'Leadership Team', href: '/about/team', description: 'Meet our experienced leaders' },
+    { title: 'Global Network', href: '/about/network', description: 'Our worldwide partnerships' }
   ]
 
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-primary-600 to-primary-700">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative py-20 bg-gradient-to-r from-primary-600 to-primary-700 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/about/company-office.jpg"
+            alt="Taifa Traders Office"
+            fill
+            className="object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-primary-600/80"></div>
+        </div>
+        
+        <div className="relative z-10 container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white font-poppins mb-6">
             About <span className="text-accent-500">Taifa Traders</span>
           </h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto font-rubik leading-relaxed">
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto  leading-relaxed mb-8">
             Over two decades of excellence in international trade, connecting businesses 
             worldwide with reliable and innovative trading solutions.
           </p>
-        </div>
-      </section>
-
-      {/* Our Story */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900 font-poppins mb-6">
-                Our Story
-              </h2>
-              <div className="space-y-4 text-gray-600 font-rubik leading-relaxed">
-                <p>
-                  Founded in 2004, Taifa Traders began as a small trading company with a big vision: 
-                  to make international trade accessible and efficient for businesses of all sizes. 
-                  What started as a local initiative has grown into a globally recognized trading partner.
-                </p>
-                <p>
-                  Over the years, we have built an extensive network of suppliers, manufacturers, 
-                  and logistics partners across more than 50 countries. Our commitment to quality, 
-                  reliability, and customer satisfaction has earned us the trust of hundreds of 
-                  businesses worldwide.
-                </p>
-                <p>
-                  Today, Taifa Traders stands as a testament to the power of perseverance, 
-                  innovation, and the unwavering belief that global trade should benefit everyone. 
-                  We continue to evolve, embracing new technologies and market opportunities 
-                  while staying true to our core values.
-                </p>
-              </div>
-            </div>
-            <div className="relative">
-              <Image
-                src="/images/hero-bg.jpg"
-                alt="Taifa Traders Office"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg"
-              />
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact" className="bg-accent-500 hover:bg-red-600 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+              Get In Touch
+            </Link>
+            <Link href="/about/mission" className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300">
+              Our Mission
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Vision & Mission */}
-      <section className="py-20 bg-gray-50">
+      {/* Company Overview */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                </svg>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900 font-poppins mb-6">
+                Who We Are
+              </h2>
+              <div className="space-y-6 text-gray-600  leading-relaxed">
+                <p className="text-lg">
+                  <strong className="text-gray-900">Taifa Traders</strong> is a forward-thinking international trading company 
+                  dedicated to simplifying global commerce for businesses around the world. We move more than just products – 
+                  we move possibilities.
+                </p>
+                <p>
+                  With a strong foundation in sourcing, logistics, and compliance, we bring the highest quality products from 
+                  global markets directly to our clients, with efficiency and professionalism. What sets us apart is our 
+                  agility and client-first mindset.
+                </p>
+                <p>
+                  We don't just trade in goods; we offer tailored solutions based on the specific needs of our partners. 
+                  Backed by a reliable network of suppliers and deep knowledge of international markets, we deliver consistent 
+                  quality, competitive pricing, and complete support throughout the trading process.
+                </p>
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 font-poppins mb-4">Our Vision</h3>
-              <p className="text-gray-600 font-rubik leading-relaxed">
-                To be the most trusted and reliable global trading partner, enabling businesses 
-                worldwide to access international markets with confidence and ease.
-              </p>
             </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+            <div className="relative">
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/about/global-network.jpg"
+                  alt="Global Trading Network"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-600/20 to-transparent"></div>
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 font-poppins mb-4">Our Mission</h3>
-              <p className="text-gray-600 font-rubik leading-relaxed">
-                To simplify global commerce by providing innovative trading solutions, 
-                maintaining the highest standards of quality, and fostering long-term 
-                partnerships that drive mutual success.
-              </p>
             </div>
+          </div>
+
+          {/* Quick Stats */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {achievements.map((achievement, index) => (
+              <div key={index} className="text-center bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-accent-500 font-poppins mb-2">
+                  {achievement.number}
+                </div>
+                <div className="text-gray-900 font-semibold mb-2 font-poppins">
+                  {achievement.label}
+                </div>
+                <p className="text-sm text-gray-600 ">
+                  {achievement.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Core Values */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 font-poppins mb-4">
               Our Core Values
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-rubik">
-              These values guide every decision we make and every relationship we build.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto ">
+              These fundamental principles guide every decision we make and every relationship we build.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
+              <div key={index} className="bg-white rounded-xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="w-16 h-16 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white">
                   {value.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 font-poppins">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 font-poppins">
                   {value.title}
                 </h3>
-                <p className="text-gray-600 font-rubik leading-relaxed">
+                <p className="text-gray-600  leading-relaxed">
                   {value.description}
                 </p>
               </div>
@@ -183,43 +202,37 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Company Timeline */}
-      <section className="py-20 bg-gray-50">
+      {/* Quick Links Section */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 font-poppins mb-4">
-              Our Journey
+              Explore More
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-rubik">
-              Key milestones that have shaped our company over the years.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto ">
+              Learn more about our company culture, leadership, and global presence.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-accent-500"></div>
-              
-              {timeline.map((item, index) => (
-                <div key={index} className={`flex items-center mb-12 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8'}`}>
-                    <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                      <div className="text-2xl font-bold text-accent-500 font-poppins mb-2">
-                        {item.year}
-                      </div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3 font-poppins">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-600 font-rubik">
-                        {item.description}
-                      </p>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {quickLinks.map((link, index) => (
+              <Link key={index} href={link.href}>
+                <div className="bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl p-8 text-white hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+                  <h3 className="text-2xl font-semibold mb-4 font-poppins">
+                    {link.title}
+                  </h3>
+                  <p className="text-blue-100  mb-6">
+                    {link.description}
+                  </p>
+                  <div className="flex items-center text-accent-500 font-semibold">
+                    Learn More 
+                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
                   </div>
-                  <div className="w-8 h-8 bg-accent-500 rounded-full border-4 border-white shadow-lg z-10"></div>
-                  <div className="w-1/2"></div>
                 </div>
-              ))}
-            </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -230,16 +243,16 @@ const AboutPage = () => {
           <h2 className="text-4xl font-bold text-white font-poppins mb-6">
             Ready to Start Trading with Us?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 font-rubik max-w-2xl mx-auto">
+          <p className="text-xl text-blue-100 mb-8  max-w-2xl mx-auto">
             Join hundreds of satisfied clients who trust Taifa Traders for their international trading needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-accent-500 hover:bg-red-600 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+            <Link href="/contact" className="bg-accent-500 hover:bg-red-600 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
               GET STARTED TODAY
-            </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
-              CONTACT US
-            </button>
+            </Link>
+            <Link href="/products" className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+              VIEW PRODUCTS
+            </Link>
           </div>
         </div>
       </section>

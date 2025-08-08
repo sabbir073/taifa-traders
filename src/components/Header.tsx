@@ -10,72 +10,70 @@ interface DropdownMenu {
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
 
   const aboutDropdown: DropdownMenu = {
-    title: 'About Us',
+    title: 'About',
     items: [
-      { name: 'Our Story', href: '/about/our-story' },
-      { name: 'Vision & Mission', href: '/about/vision-mission' },
-      { name: 'Leadership Team', href: '/about/leadership' },
-      { name: 'Core Values', href: '/about/core-values' },
-      { name: 'Certifications & Compliance', href: '/about/certifications' },
+      { name: 'Our Company', href: '/about' },
+      { name: 'Mission & Vision', href: '/about/mission' },
+      { name: 'Leadership Team', href: '/about/team' },
+      { name: 'Global Network', href: '/about/network' },
+    ]
+  }
+
+  const productsDropdown: DropdownMenu = {
+    title: 'Products',
+    items: [
+      { name: 'Fresh Fruits', href: '/products/fresh-fruits' },
+      { name: 'Edible Oils', href: '/products/edible-oils' },
+      { name: 'Staple Foods', href: '/products/staple-foods' },
+      { name: 'Spices & Seasonings', href: '/products/spices-seasonings' },
+      { name: 'All Products', href: '/products' },
     ]
   }
 
   const servicesDropdown: DropdownMenu = {
-    title: 'Products & Services',
+    title: 'Services',
     items: [
-      { name: 'Essential Commodities', href: '/services/commodities' },
-      { name: 'Edible Oils', href: '/services/edible-oils' },
-      { name: 'Fresh Fruits & Spices', href: '/services/fruits-spices' },
-      { name: 'Custom Import Solutions', href: '/services/import-solutions' },
-      { name: 'Logistics & Warehousing', href: '/services/logistics' },
+      { name: 'Global Sourcing', href: '/services/sourcing' },
+      { name: 'Quality Assurance', href: '/services/quality' },
+      { name: 'Logistics & Shipping', href: '/services/logistics' },
       { name: 'Trade Consulting', href: '/services/consulting' },
-    ]
-  }
-
-  const moreDropdown: DropdownMenu = {
-    title: 'More',
-    items: [
-      { name: 'Global Network', href: '/global-network' },
-      { name: 'FAQ', href: '/faq' },
-      { name: 'Career', href: '/career' },
+      { name: 'All Services', href: '/services' },
     ]
   }
 
   const DropdownComponent = ({ dropdown }: { dropdown: DropdownMenu }) => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-
     return (
-      <div 
-        className="relative group"
-        onMouseEnter={() => setIsDropdownOpen(true)}
-        onMouseLeave={() => setIsDropdownOpen(false)}
-      >
+      <div className="relative group">
         <button className="flex items-center text-gray-700 hover:text-accent-500 font-medium py-2 px-3 transition-colors duration-300">
           {dropdown.title}
-          <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </button>
         
-        {isDropdownOpen && (
-          <div className="absolute top-full left-0 mt-1 w-64 bg-white rounded-md shadow-lg border border-gray-200 z-50">
-            <div className="py-2">
-              {dropdown.items.map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.href}
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-accent-500 transition-colors duration-200"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
+        {/* CSS-only dropdown that shows on group hover */}
+        <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-md shadow-lg border border-gray-200 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-1 group-hover:translate-y-0">
+          <div className="py-2">
+            {dropdown.items.map((item, index) => (
+              <Link
+                key={index}
+                href={item.href}
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-accent-500 transition-colors duration-200"
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
-        )}
+        </div>
       </div>
     )
+  }
+
+  const toggleDropdown = (dropdown: string) => {
+    setOpenDropdown(openDropdown === dropdown ? null : dropdown)
   }
 
   return (
@@ -94,18 +92,20 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-accent-500 font-medium transition-colors duration-300">
-              Home
-            </Link>
-            
-            <DropdownComponent dropdown={aboutDropdown} />
-            <DropdownComponent dropdown={servicesDropdown} />
-            <DropdownComponent dropdown={moreDropdown} />
-            
-            <Link href="/contact" className="text-gray-700 hover:text-accent-500 font-medium transition-colors duration-300">
-              Contact Us
-            </Link>
+          <nav className="hidden lg:flex items-center justify-center flex-1 ml-8">
+            <div className="flex items-center space-x-10">
+              <Link href="/" className="text-gray-700 hover:text-accent-500 font-medium transition-colors duration-300 py-2 px-3">
+                Home
+              </Link>
+              
+              <DropdownComponent dropdown={aboutDropdown} />
+              <DropdownComponent dropdown={productsDropdown} />
+              <DropdownComponent dropdown={servicesDropdown} />
+              
+              <Link href="/contact" className="text-gray-700 hover:text-accent-500 font-medium transition-colors duration-300 py-2 px-3">
+                Contact
+              </Link>
+            </div>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -114,51 +114,134 @@ const Header = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <span className="sr-only">Open main menu</span>
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            {isMenuOpen ? (
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden pb-4">
-            <div className="space-y-1">
-              <Link href="/" className="block px-3 py-2 text-gray-700 hover:text-accent-500 font-medium">
+          <div className="lg:hidden bg-white border-t border-gray-200">
+            <div className="max-h-96 overflow-y-auto py-4">
+              {/* Home */}
+              <Link 
+                href="/" 
+                className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-accent-500 font-medium border-b border-gray-100"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Home
               </Link>
-              <div className="px-3 py-2">
-                <span className="text-gray-700 font-medium">About Us</span>
-                <div className="ml-4 mt-1 space-y-1">
-                  {aboutDropdown.items.map((item, index) => (
-                    <Link key={index} href={item.href} className="block py-1 text-sm text-gray-600 hover:text-accent-500">
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
+
+              {/* About Dropdown */}
+              <div className="border-b border-gray-100">
+                <button
+                  onClick={() => toggleDropdown('about')}
+                  className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-gray-50 font-medium"
+                >
+                  About
+                  <svg 
+                    className={`w-4 h-4 transition-transform duration-200 ${openDropdown === 'about' ? 'rotate-180' : ''}`} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {openDropdown === 'about' && (
+                  <div className="bg-gray-50 px-4 py-2">
+                    {aboutDropdown.items.map((item, index) => (
+                      <Link
+                        key={index}
+                        href={item.href}
+                        className="block py-2 px-4 text-sm text-gray-600 hover:text-accent-500 transition-colors duration-200"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
-              <div className="px-3 py-2">
-                <span className="text-gray-700 font-medium">Products & Services</span>
-                <div className="ml-4 mt-1 space-y-1">
-                  {servicesDropdown.items.map((item, index) => (
-                    <Link key={index} href={item.href} className="block py-1 text-sm text-gray-600 hover:text-accent-500">
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
+
+              {/* Products Dropdown */}
+              <div className="border-b border-gray-100">
+                <button
+                  onClick={() => toggleDropdown('products')}
+                  className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-gray-50 font-medium"
+                >
+                  Products
+                  <svg 
+                    className={`w-4 h-4 transition-transform duration-200 ${openDropdown === 'products' ? 'rotate-180' : ''}`} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {openDropdown === 'products' && (
+                  <div className="bg-gray-50 px-4 py-2">
+                    {productsDropdown.items.map((item, index) => (
+                      <Link
+                        key={index}
+                        href={item.href}
+                        className="block py-2 px-4 text-sm text-gray-600 hover:text-accent-500 transition-colors duration-200"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
-              <div className="px-3 py-2">
-                <span className="text-gray-700 font-medium">More</span>
-                <div className="ml-4 mt-1 space-y-1">
-                  {moreDropdown.items.map((item, index) => (
-                    <Link key={index} href={item.href} className="block py-1 text-sm text-gray-600 hover:text-accent-500">
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
+
+              {/* Services Dropdown */}
+              <div className="border-b border-gray-100">
+                <button
+                  onClick={() => toggleDropdown('services')}
+                  className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-gray-50 font-medium"
+                >
+                  Services
+                  <svg 
+                    className={`w-4 h-4 transition-transform duration-200 ${openDropdown === 'services' ? 'rotate-180' : ''}`} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {openDropdown === 'services' && (
+                  <div className="bg-gray-50 px-4 py-2">
+                    {servicesDropdown.items.map((item, index) => (
+                      <Link
+                        key={index}
+                        href={item.href}
+                        className="block py-2 px-4 text-sm text-gray-600 hover:text-accent-500 transition-colors duration-200"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
-              <Link href="/contact" className="block px-3 py-2 text-gray-700 hover:text-accent-500 font-medium">
-                Contact Us
+
+              {/* Contact */}
+              <Link 
+                href="/contact" 
+                className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-accent-500 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
               </Link>
             </div>
           </div>

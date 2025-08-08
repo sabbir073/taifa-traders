@@ -19,7 +19,7 @@ const NewsletterSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white font-poppins mb-6">
             Stay Updated with <span className="text-accent-500">Global Trade</span> Insights
           </h2>
-          <p className="text-xl text-blue-100 mb-8 font-rubik leading-relaxed">
+          <p className="text-xl text-blue-100 mb-8 leading-relaxed">
             Get the latest market trends, trade opportunities, and industry insights 
             delivered directly to your inbox. Join thousands of traders worldwide.
           </p>
@@ -33,7 +33,7 @@ const NewsletterSection = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
-                  className="w-full px-6 py-4 rounded-full text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-accent-500/30 font-rubik text-lg"
+                  className="w-full px-6 py-4 rounded-full text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-accent-500/30 text-lg"
                   required
                 />
               </div>
@@ -48,7 +48,7 @@ const NewsletterSection = () => {
 
           {/* Success Message */}
           {isSubmitted && (
-            <div className="mt-6 p-4 bg-green-500/20 border border-green-400 rounded-lg text-green-100 font-rubik">
+            <div className="mt-6 p-4 bg-green-500/20 border border-green-400 rounded-lg text-green-100">
               Thank you for subscribing! You'll receive our latest updates soon.
             </div>
           )}

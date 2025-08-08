@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const HeroSection = () => {
   return (
@@ -23,17 +24,17 @@ const HeroSection = () => {
             We Offer Solutions{' '}
             <span className="text-accent-500">Based On Needs</span>
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl mb-8 font-rubik leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl mb-8 leading-relaxed">
             Taifa Traders is the trusted name for businesses that demand excellence at every step.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-accent-500 hover:bg-red-600 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+            <Link href="/contact" className="bg-accent-500 hover:bg-red-600 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
               CONTACT
-            </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+            </Link>
+            <Link href="/about" className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
               LEARN MORE
-            </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -50,7 +50,7 @@ const ContentBlocks = () => {
               <h3 className="text-xl font-semibold text-gray-900 mb-4 font-poppins">
                 {block.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed font-rubik">
+              <p className="text-gray-600 leading-relaxed">
                 {block.description}
               </p>
             </div>
