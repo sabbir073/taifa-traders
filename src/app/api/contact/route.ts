@@ -73,8 +73,28 @@ export async function POST(req: NextRequest) {
 
   } catch (error) {
     console.error('Contact form error:', error)
+    
+    // More specific error messages for debugging
+    let errorMessage = 'Failed to send email. Please try again later.'
+    if (error instanceof Error) {
+      if (error.message.includes('ENOTFOUND') || error.message.includes('getaddrinfo')) {
+        errorMessage = 'SMTP server not found. Please check server configuration.'
+      } else if (error.message.includes('ECONNREFUSED')) {
+        errorMessage = 'SMTP server connection refused. Please check server and port.'
+      } else if (error.message.includes('Invalid login')) {
+        errorMessage = 'SMTP authentication failed. Please check credentials.'
+      }
+      console.error('Detailed error:', {
+        message: error.message,
+        code: (error as any).code,
+        errno: (error as any).errno,
+        syscall: (error as any).syscall,
+        hostname: (error as any).hostname
+      })
+    }
+    
     return NextResponse.json(
-      { error: 'Failed to send email. Please try again later.' },
+      { error: errorMessage },
       { status: 500 }
     )
   }
